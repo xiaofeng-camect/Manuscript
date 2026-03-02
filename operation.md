@@ -1,4 +1,4 @@
-# Description
+![2026-03-02 18-07-03](https://github.com/user-attachments/assets/723a328c-001c-4f53-8702-ea33cf31139b)# Description
 Operation: The logs contain user actions and important events and allow users to view.
 ![Operation_entry1](https://github.com/user-attachments/assets/33e72302-c91d-4f1d-af5f-eb405ff89a5f)
 ![Operation_entry2](https://github.com/user-attachments/assets/b3b5940c-6c8d-49c6-9496-a838686d430a)
@@ -26,4 +26,15 @@ Note:
         p.maybeLogStringsConfigChange(oldEmailCfg, newEmailCfg,
         	storage.OperationChangeUserAlertConfigs, "", camId, nil, "Showing subjects in email: ")
         ```
-     3) Sub-settings would recover to default when button switches to disable(enable), e.g. :
+     3) Sub-settings would recover to default when button switches to disable(enable), e.g. "Tampering detection schedules" under "Tampering detection":
+     ![2026-03-02 18-07-03](https://github.com/user-attachments/assets/dde0c350-79aa-4cb1-96b9-197591b7f76d)
+       ```
+        if !p.maybeLogBoolConfigChange(true, cfg.TamperingCfg.GetEnableDetection(),
+          req.TamperingCfg.GetEnableDetection(), storage.OperationChangeAlertConfigs, "",
+          camId, nil, "Tampering detection: ") {
+          maybeLogPbListConfigChange(cfg.TamperingCfg.GetValidity(),
+            req.TamperingCfg.GetValidity(), storage.OperationChangeAlertConfigs, p, "",
+            camId, nil, "Tampering detection schedules: ")
+        }
+        ```
+      
