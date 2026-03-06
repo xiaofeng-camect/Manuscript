@@ -9,10 +9,8 @@ It should contain all of follows:
 
 # Add a track object
 Call functions in go/src/server/home_server/log_operation.go
-## Simple event-logOperation():
-![2026-03-02 15-18-22](https://github.com/user-attachments/assets/5d2a3eb4-4826-46e7-88f4-9b5e83e56788)
-## Switch button-maybeLogBoolConfigChange():
-![2026-03-02 15-25-49](https://github.com/user-attachments/assets/ced8542c-8e25-4a2a-a4a6-4ff227965e0f)
+## Simple event-logOperation(), e.g. "Restarted hub":
+## Switch button-maybeLogBoolConfigChange(), e.g. "Long distance mode":
 Note:
   1. "isEnable==true" means "val==true" is "enable"
   2. Some button corresponding to a int(float) instead of bool value, e.g. sensitive mode:
@@ -35,4 +33,5 @@ Note:
             storage.OperationChangeAlertConfigs, p, "", camId, nil, "Tampering detection schedules: ")
         }
         ```
-      
+## Number settings-maybeLogInt32ConfigChange(), e.g. "Start seconds before triggering".
+
