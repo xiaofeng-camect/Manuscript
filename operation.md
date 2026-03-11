@@ -1,23 +1,24 @@
 # Description
 Operation: The user actions and important events.
+
 ![Operation_entry1](https://github.com/user-attachments/assets/33e72302-c91d-4f1d-af5f-eb405ff89a5f)
 ![Operation_entry2](https://github.com/user-attachments/assets/b3b5940c-6c8d-49c6-9496-a838686d430a)
 
-It contains:
+Operation objects:
   1. The setting changes from user action in UI and API, e.g. added a camera.
-  2. The server status changes from auto or triggered, e.g. switched operation mode.
+  2. The settings' status changes from auto or triggered, e.g. switched operation mode.
 
-Log info:
+Operation info:
   1. Time: operation time.
   2. Name: the type of the operation, all types are list in go/src/storage/interface.go.
   3. Camera: the specific camera of this operation, it would be empty if operation belongs to the hub.
   4. User: the user triggered the operation.
-  5. From: Ip of user.
+  5. From: IP of user.
   6. Error: the error info of the triggered operation.
   7. Info: the operation information and the relevant setting's before/after status.
 
-# Add a log operation
-Once add a editable setting on UI, we should also add a relevant operation log, most of them should be added in "webrtc_peer.go", e.g camera stream config:
+# Add a operation log object
+Once add an editable setting on UI, we should also add a relevant operation log object, most of them should be added in "webrtc_peer.go", e.g camera stream config:
 ```
 oldStreamingCfg := cfg.StreamingConfig(camId)
 ...
